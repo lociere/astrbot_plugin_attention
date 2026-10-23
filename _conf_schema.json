@@ -1,0 +1,46 @@
+{
+  "enabled": {
+    "type": "bool",
+    "description": "启用注意力优化插件",
+    "default": true
+  },
+  "window_seconds": {
+    "type": "float",
+    "description": "续聊窗口（秒）",
+    "hint": "明确唤醒后开启窗口；超时恢复原有唤醒规则。范围为 1—3600 秒。",
+    "default": 90.0,
+    "slider": {"min": 1, "max": 3600, "step": 1}
+  },
+  "refresh_on_reply": {
+    "type": "bool",
+    "description": "回复后重新计时",
+    "hint": "模型完成回答后续时；普通回复发送阶段结束后再续时。关闭后固定从最近一次明确唤醒计时。",
+    "default": true
+  },
+  "allowed_groups": {
+    "type": "list",
+    "description": "生效群聊",
+    "hint": "填写群号或完整会话 UMO；空列表表示所有已获 AstrBot 访问许可的群。本列表不能绕过 AstrBot 白名单和自定义规则。",
+    "default": [],
+    "items": {"type": "string"}
+  },
+  "ignore_addressed_to_others": {
+    "type": "bool",
+    "description": "不为发给其他人的消息补充唤醒",
+    "hint": "包含 @其他人、@全体或引用他人消息时跳过续聊；同时明确呼叫本机器人时仍可处理。原有唤醒状态不会被取消。",
+    "default": true
+  },
+  "allow_media": {
+    "type": "bool",
+    "description": "允许纯媒体消息续聊",
+    "hint": "允许窗口内的纯表情、图片、语音等消息补充唤醒；如何理解这些消息由 AstrBot、模型及其他插件决定。",
+    "default": true
+  },
+  "max_sessions": {
+    "type": "int",
+    "description": "最多保留的续聊窗口",
+    "hint": "超过上限时淘汰最早到期的窗口。只保存在内存，重载或重启后清空。",
+    "default": 1000,
+    "slider": {"min": 1, "max": 10000, "step": 1}
+  }
+}

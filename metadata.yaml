@@ -1,0 +1,10 @@
+name: astrbot_plugin_attention
+display_name: 注意力优化插件
+desc: 按群与成员维护限时续聊窗口，仅补充唤醒标记，后续交给 AstrBot 原有处理流程。
+short_desc: 唤醒后限时免唤醒词续聊，无额外模型判断
+version: 0.1.0
+author: lociere
+repo: https://github.com/lociere/astrbot_plugin_attention
+support_platforms:
+  - aiocqhttp
+astrbot_version: ">=4.29.1,<5"
